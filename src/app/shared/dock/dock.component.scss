@@ -1,0 +1,29 @@
+.dock {
+    position: absolute;
+    bottom: 1vh;
+    justify-content: center;
+    width: 100%;
+
+    div {
+        width: 20%;
+        display: flex;
+        justify-content: space-around;
+        margin-inline: auto;
+        background-color: rgb(142, 193, 242);
+        border-radius: 10px;
+        height: 7vh;
+        min-width: 200px;
+
+        i {
+            margin: auto;
+            cursor: pointer;
+            &:hover {
+                color:rgb(41, 59, 77);
+            }
+
+            &.selected {
+                color: white;
+            }
+        }
+    }
+}

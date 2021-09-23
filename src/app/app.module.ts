@@ -7,6 +7,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { BalanceComponent } from './pages/balance/balance.component';
 import { DataentryComponent } from './pages/dataentry/dataentry.component';
 import { RegisterComponent } from './pages/register/register.component';
+import { DockComponent } from './shared/dock/dock.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { RegisterComponent } from './pages/register/register.component';
     RegisterComponent,
     BalanceComponent,
     DataentryComponent,
+    DockComponent,
   ],
   imports: [
     BrowserModule,
