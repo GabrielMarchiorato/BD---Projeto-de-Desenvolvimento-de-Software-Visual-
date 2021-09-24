@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DataentryComponent } from './dataentry.component';
+import { MovementComponent } from './movement.component';
 
-describe('DataentryComponent', () => {
-  let component: DataentryComponent;
-  let fixture: ComponentFixture<DataentryComponent>;
+describe('MovementComponent', () => {
+  let component: MovementComponent;
+  let fixture: ComponentFixture<MovementComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ DataentryComponent ]
+      declarations: [ MovementComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(DataentryComponent);
+    fixture = TestBed.createComponent(MovementComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
