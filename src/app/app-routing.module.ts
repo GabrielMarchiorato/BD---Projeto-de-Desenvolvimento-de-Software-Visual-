@@ -12,11 +12,11 @@ const routes: Routes = [
   },  
   {
     path: 'user',
-    loadChildren: () => import('./pages/home/home.module').then( m => m.HomeModule)
+    loadChildren: () => import('./pages/user/user.module').then( m => m.UserModule)
   }, 
   {
     path: 'cards',
-    loadChildren: () => import('./pages/home/home.module').then( m => m.HomeModule)
+    loadChildren: () => import('./pages/card/card.module').then( m => m.CardModule)
   },
   {
     path: '',

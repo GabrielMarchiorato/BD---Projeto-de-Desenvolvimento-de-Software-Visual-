@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { AccountService } from 'src/app/services/account/account.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -11,7 +12,8 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private accountService: AccountService
+    private accountService: AccountService,
+    private router: Router
   ) { 
     this.form = this.formBuilder.group({
       username: '',
@@ -27,6 +29,10 @@ export class LoginComponent implements OnInit {
 
   onSubmit() {
     this.accountService.login(this.form.value)
+  }
+
+  signUp(form: FormGroup) {
+    console.log(form);
   }
 
 }
