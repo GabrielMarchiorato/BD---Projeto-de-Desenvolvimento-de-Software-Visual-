@@ -14,17 +14,18 @@ export class LoginComponent implements OnInit {
     private formBuilder: FormBuilder,
     private accountService: AccountService,
     private router: Router
-  ) { 
+  ) {
     this.form = this.formBuilder.group({
       username: '',
-      password: ''
+      password: '',
+      role: ''
     })
   }
 
   public form: FormGroup
 
   ngOnInit(): void {
-  
+
   }
 
   onSubmit() {
@@ -32,7 +33,9 @@ export class LoginComponent implements OnInit {
   }
 
   signUp(form: FormGroup) {
-    console.log(form);
+    form.value.role = "user"
+    // console.log(form.value)
+    this.accountService.signUp(form.value);
   }
 
 }

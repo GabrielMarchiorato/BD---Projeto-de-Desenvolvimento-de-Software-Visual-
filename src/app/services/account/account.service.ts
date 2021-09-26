@@ -23,6 +23,14 @@ export class AccountService {
     this.loginDialogRef?.close()
   }
 
+  async signUp(data: any) {
+    let response = (await this.httpClient.post(`${this.baseUrl}/signup`, data).toPromise<any>())
+    this.userData = {...response.user, token: response.token}
+    localStorage.setItem('token', response.token)
+    this.router.navigate([''])
+    this.loginDialogRef?.close()
+  }
+
   setRef(ref?: DynamicDialogRef) {
     this.loginDialogRef = ref
   }
