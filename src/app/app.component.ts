@@ -27,9 +27,9 @@ export class AppComponent implements OnInit {
 
     let result = await this.accountService.isAuthenticated()
 
-    if (!result) {
-      this.showLoginModal()
-    }
+    // if (!result) {
+    //   this.showLoginModal()
+    // }
   }
 
 
