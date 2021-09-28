@@ -1,36 +1,24 @@
-// import { Component, OnInit } from '@angular/core';
-// import { ActivatedRoute, Router } from '@angular/router';
-// import { User } from
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import UserData from "src/app/interfaces/userInterface"
+import { AccountService } from 'src/app/services/account/account.service';
+@Component({
+  selector: 'app-user',
+  templateUrl: './user.component.html',
+  styleUrls: ['./user.component.scss']
+})
+export class UserComponent implements OnInit {
 
-// @Component({
-//   selector: 'app-user',
-//   templateUrl: './user.component.html',
-//   styleUrls: ['./user.component.scss']
-// })
-// export class EditarComponent implements OnInit {
+  usuario: UserData;
 
-//   user : User;
+  constructor(
+    private router: Router
+  ) { this.usuario = {} as UserData; }
 
-//   constructor(private service : UserComponent,
-//       private router: Router, private route : ActivatedRoute) {
-//     this.user = {} as User;
-//   }
+  ngOnInit(): void {
+  }
 
-//   ngOnInit(): void {
-//     // const str = this.route.snapshot.paramMap.get('id');
-//     // this.service.buscarPorId(Number(str)).then( user => {
-//     //   this.user = user;
-//     // });
-//   }
+  update(user: UserData): void {
+  }
 
-//   // atualizar(user : User) {
-//   //   this.service.atualizarUsuario(user).then(() => {
-//   //     console.log('Usuario atualizado');
-//   //     this.router.navigate(['/admin']);
-//   //   });
-//   // }
-// }
-
-
-
-
+}

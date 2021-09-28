@@ -1,23 +1,12 @@
 <div>
   <form>
-    <h2>Editar Usuário</h2>
+    <h2>Editar dados do Usuário</h2>
     <div class="form-group">
-      <label for="inputNome">Nome</label>
-      <input type="text" class="form-control" id="inputNome" aria-describedby="nomeHelp" [(placeholder)]="usuario.nome">
+      <label for="inputUsername">Usuário</label>
+      <input type="username" class="form-control" id="inputusername" aria-describedby="usernameHelp">
 
     </div>
-    <div class="form-group">
-      <label for="inputCpf">CPF</label>
-      <input type="text" class="form-control" id="inputCpf" aria-describedby="cpfHelp" [(placeholder)]="usuario.cpf">
-
-    </div>
-    <div class="form-group">
-      <label for="inputEmail">E-mail</label>
-      <input type="email" class="form-control" id="inputEmail" aria-describedby="emailHelp"
-        [(placeholder)]="usuario.email">
-
-    </div>
-    <button type="submit" (click)="atualizar(usuario)">Salvar</button>
+    <button type="submit" (click)="update(usuario)">Salvar</button>
     <button routerLink="/admin">Cancelar</button>
 
   </form>
