@@ -4,12 +4,18 @@ import { FormsModule } from '@angular/forms';
 import { CardRoutingModule } from './card-routing.module';
 
 import { CardComponent } from './card.component';
+import { CardsCarouselComponent } from 'src/app/shared/cards-carousel/cards-carousel.component';
+import { CarouselModule } from 'primeng/carousel';
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
-    CardRoutingModule
+    CardRoutingModule,
+    CarouselModule
   ],
-  declarations: [CardComponent]
+  declarations: [
+    CardComponent,
+    CardsCarouselComponent
+  ]
 })
 export class CardModule {}

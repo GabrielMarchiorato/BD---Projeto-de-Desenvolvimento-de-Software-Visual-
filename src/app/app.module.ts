@@ -34,7 +34,7 @@ import { MovementComponent } from './components/movement/movement.component';
     InputTextModule,
     ButtonModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
