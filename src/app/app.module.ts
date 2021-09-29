@@ -15,7 +15,9 @@ import { DockComponent } from './shared/dock/dock.component';
 import { MovementComponent } from './components/movement/movement.component';
 
 import { ChartModule } from 'primeng/chart';
-
+import { AddMovementComponent } from './components/add-movement/add-movement.component';
+import { DropdownModule } from 'primeng/dropdown';
+import { InputNumberModule } from 'primeng/inputnumber';
 
 @NgModule({
   declarations: [
@@ -23,6 +25,7 @@ import { ChartModule } from 'primeng/chart';
     LoginComponent,
     DockComponent,
     MovementComponent,
+    AddMovementComponent,
   ],
   imports: [
     BrowserModule,
@@ -36,9 +39,14 @@ import { ChartModule } from 'primeng/chart';
     FormsModule,
     ReactiveFormsModule,
     SelectButtonModule,
-    ChartModule
+    ChartModule,
+    DropdownModule,
+    InputNumberModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [
+    ButtonModule
+  ],
+  bootstrap: [AppComponent],
+  exports: [ButtonModule]
 })
 export class AppModule { }

@@ -1,11 +1,37 @@
-<p-card [header]="'Olá, ' + userData.username + '. Acompanhe seus gastos do período'" [style]="{'width': '45rem', 'margin': 'auto auto 2em' }">
+<p-card [header]="'Olá, ' + userData.username + '. Acompanhe seus gastos do período'" [style]="{'width': '55rem', 'margin': 'auto auto 2em' }">
   <div>
     <app-balance> </app-balance>
   </div>
 </p-card>
 
-<p-card header="Transações realizadas" [style]="{'width': '45rem', 'margin': 'auto auto 2em' }">
-  
+<p-card *ngIf="loaded" header="Transações realizadas" [style]="{'margin': 'auto auto 2em' }">
+  <app-types-chart [labels]="chartLabels" [data]="chartDataset"></app-types-chart>
+
+  <br style="height: 45px;">
+  <p-dataView #dv [value]="movements" [paginator]="true" [rows]="9" filterBy="type" layout="list" class="movement-list">
+    <ng-template pTemplate="header">
+      <div class="p-d-flex p-flex-column p-flex-md-row p-jc-md-between">
+        <h3>Saldo entre entradas e saídas: R${{ balance }}</h3>
+        <h4>Movimentações:</h4>
+        <button pButton pRipple type="button" label="Adicionar" class="p-button" (click)="showAddMovementModal()"></button>
+      </div>
+
+    </ng-template>
+    <ng-template let-movement pTemplate="listItem">
+        <div class="p-col-12">
+          <div class="p-col-12">
+            <div class="product-list-item">
+                <div class="product-list-detail">
+                    <div class="product-name">{{prettierName(movement.type)}}</div>
+                    <span class="product-category">{{movement.method}}</span>
+                </div>
+                <div class="product-list-action">
+                    <span class="product-price">R${{movement.value}}</span>
+                </div>
+            </div>
+          </div>
+        </div>
+    </ng-template>
+  </p-dataView>
+
 </p-card>
-
-

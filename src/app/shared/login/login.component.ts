@@ -34,7 +34,6 @@ export class LoginComponent implements OnInit {
 
   signUp(form: FormGroup) {
     form.value.role = "user"
-    // console.log(form.value)
     this.accountService.signUp(form.value);
   }
 
