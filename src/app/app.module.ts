@@ -11,7 +11,6 @@ import { ButtonModule } from 'primeng/button';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './shared/login/login.component';
-import { BalanceComponent } from './components/balance/balance.component';
 import { DockComponent } from './shared/dock/dock.component';
 import { MovementComponent } from './components/movement/movement.component';
 
@@ -20,7 +19,6 @@ import { MovementComponent } from './components/movement/movement.component';
   declarations: [
     AppComponent,
     LoginComponent,
-    BalanceComponent,
     DockComponent,
     MovementComponent,
   ],
