@@ -1,1 +1,13 @@
-<p>user works!</p>
+<div>
+  <form>
+    <h2>Editar dados do Usuário</h2>
+    <div class="form-group">
+      <label for="inputUsername">Usuário</label>
+      <input type="username" class="form-control" id="inputusername" aria-describedby="usernameHelp">
+
+    </div>
+    <button type="submit" (click)="update(usuario)">Salvar</button>
+    <button routerLink="/admin">Cancelar</button>
+
+  </form>
+</div>

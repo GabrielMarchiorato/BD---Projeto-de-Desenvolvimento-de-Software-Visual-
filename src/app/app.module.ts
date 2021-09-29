@@ -8,19 +8,19 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PasswordModule } from 'primeng/password';
 import { InputTextModule } from 'primeng/inputtext';
 import { ButtonModule } from 'primeng/button';
-
+import { SelectButtonModule } from 'primeng/selectbutton';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './shared/login/login.component';
-import { BalanceComponent } from './components/balance/balance.component';
 import { DockComponent } from './shared/dock/dock.component';
 import { MovementComponent } from './components/movement/movement.component';
+
+import { ChartModule } from 'primeng/chart';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    BalanceComponent,
     DockComponent,
     MovementComponent,
   ],
@@ -35,6 +35,8 @@ import { MovementComponent } from './components/movement/movement.component';
     ButtonModule,
     FormsModule,
     ReactiveFormsModule,
+    SelectButtonModule,
+    ChartModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -19,6 +19,16 @@ export class AccountService {
     let response = (await this.httpClient.post(`${this.baseUrl}/login`, data).toPromise<any>())
     this.userData = {...response.user, token: response.token}
     localStorage.setItem('token', response.token)
+
+    localStorage.setItem('userData', JSON.stringify(this.userData))
+    window.location.reload()
+    this.loginDialogRef?.close()
+  }
+
+  async signUp(data: any) {
+    let response = (await this.httpClient.post(`${this.baseUrl}/signup`, data).toPromise<any>())
+    this.userData = {...response.user, token: response.token}
+    localStorage.setItem('token', response.token)
     this.router.navigate([''])
     this.loginDialogRef?.close()
   }
@@ -32,6 +42,8 @@ export class AccountService {
     if (!token) return false
     try {
       await this.httpClient.get(`${this.baseUrl}/authenticated`, { headers: { Authorization: `Bearer ${token}` } }).toPromise()
+      this.userData = JSON.parse(localStorage.getItem('userData')!)
+      this.router.navigate([''])
       return true
     } catch (e) {
       return false

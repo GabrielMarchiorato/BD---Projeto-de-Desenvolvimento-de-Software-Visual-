@@ -1,5 +1,5 @@
 .dock {
-    position: absolute;
+    position: fixed;
     bottom: 1vh;
     justify-content: center;
     width: 100%;
@@ -27,3 +27,12 @@
         }
     }
 }
+
+.foot {
+  bottom: 0;
+  flex-direction: column;
+  font-weight: bold;
+  text-align: center;
+  font-size: 12px;
+}
+

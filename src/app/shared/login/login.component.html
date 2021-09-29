@@ -1,8 +1,9 @@
 <div class="login">
     <form [formGroup]="form" (ngSubmit)="onSubmit()">
-        <input formControlName="username" type="text" pInputText> 
-        <input formControlName="password" type="password" pPassword />
-        <button pButton pRipple type="button" label="Login" class="p-button" type="submit"></button>
+        <input formControlName="username" type="text" pInputText required> 
+        <input formControlName="password" type="password" pPassword required />
+        <button pButton pRipple type="button" label="Login" class="p-button" type="submit" [disabled]="!form.valid"></button>
         <button pButton pRipple type="button" label="Sign Up" class="p-button-text" (click)="signUp(form)"></button>
+
     </form>
 </div>
