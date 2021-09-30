@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import { DynamicDialogConfig } from 'primeng/dynamicdialog';
 import { AccountService } from 'src/app/services/account/account.service';
 import { MovementService } from 'src/app/services/movement/movement.service';
 
@@ -10,20 +11,24 @@ interface Type {
 }
 
 @Component({
-  selector: 'app-add-movement',
-  templateUrl: './add-movement.component.html',
-  styleUrls: ['./add-movement.component.scss']
+  selector: 'app-edit-movement',
+  templateUrl: './edit-movement.component.html',
+  styleUrls: ['./edit-movement.component.scss']
 })
-export class AddMovementComponent implements OnInit {
+export class EditMovementComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private movementService: MovementService,
-    private router: Router
+    private router: Router,
+    public config: DynamicDialogConfig
   ) {
     this.form = this.formBuilder.group({
       type: 'others',
       method: 'money_outflow',
-      value: ''
+      value: '',
+      id: '',
+      userId: '',
+      cardId: ''
     })
 
     this.types = [
@@ -47,15 +52,14 @@ export class AddMovementComponent implements OnInit {
   public types: Type[];
   public methods: Type[];
 
-
   public form: FormGroup
 
   ngOnInit(): void {
-
+    this.form.setValue({...this.config.data})
   }
 
   async onSubmit() {
-    await this.movementService.insertMovement(this.form.value)
+    await this.movementService.updateMovement(this.form.value)
     window.location.reload()
   }
 

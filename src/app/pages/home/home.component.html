@@ -1,8 +1,8 @@
-<p-card [header]="'Olá, ' + userData.username + '. Acompanhe seus gastos do período'" [style]="{'width': '55rem', 'margin': 'auto auto 2em' }">
+<!-- <p-card [header]="'Olá, ' + userData.username + '. Acompanhe seus gastos do período'" [style]="{'width': '55rem', 'margin': 'auto auto 2em' }">
   <div>
     <app-balance> </app-balance>
   </div>
-</p-card>
+</p-card> -->
 
 <p-card *ngIf="loaded" header="Transações realizadas" [style]="{'margin': 'auto auto 2em' }">
   <app-types-chart [labels]="chartLabels" [data]="chartDataset"></app-types-chart>
@@ -28,6 +28,14 @@
                 <div class="product-list-action">
                     <span class="product-price">R${{movement.value}}</span>
                 </div>
+                <button
+                  [swal]="{ title: 'Remover movimentação', showCancelButton: true, cancelButtonText: 'Cancelar'  }"
+                  (confirm)="deleteMovement(movement)" pButton pRipple class="p-button-outlined p-button-danger">
+                  
+                  Remover
+                </button>
+
+                <button pButton pRipple type="button" label="Editar" class="p-button-outlined p-button-info" (click)="showEditMovementModal(movement)"></button>
             </div>
           </div>
         </div>

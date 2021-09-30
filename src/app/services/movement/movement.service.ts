@@ -24,7 +24,7 @@ export class MovementService {
   }
 
   async deleteMovement(id: number){
-    return this.httpClient.delete(`${this.baseUrl}/${id}`, this.options).toPromise<any>();
+    return this.httpClient.delete(`${this.baseUrl}/?movementId=${id}`, this.options).toPromise<any>();
   }
   async getMovementsForUser(){
     return this.httpClient.get<Movement[]>(this.baseUrl, this.options).toPromise<Movement[]>();

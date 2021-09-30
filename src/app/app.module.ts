@@ -18,6 +18,8 @@ import { ChartModule } from 'primeng/chart';
 import { AddMovementComponent } from './components/add-movement/add-movement.component';
 import { DropdownModule } from 'primeng/dropdown';
 import { InputNumberModule } from 'primeng/inputnumber';
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
+import { EditMovementComponent } from './components/edit-movement/edit-movement.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +28,7 @@ import { InputNumberModule } from 'primeng/inputnumber';
     DockComponent,
     MovementComponent,
     AddMovementComponent,
+    EditMovementComponent,
   ],
   imports: [
     BrowserModule,
@@ -41,7 +44,8 @@ import { InputNumberModule } from 'primeng/inputnumber';
     SelectButtonModule,
     ChartModule,
     DropdownModule,
-    InputNumberModule
+    InputNumberModule,
+    SweetAlert2Module.forRoot()
   ],
   providers: [
     ButtonModule

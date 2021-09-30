@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormControl, FormGroup, ValidationErrors, ValidatorFn } from '@angular/forms';
 import { AccountService } from 'src/app/services/account/account.service';
 import { Router } from '@angular/router';
 
@@ -18,9 +18,12 @@ export class LoginComponent implements OnInit {
     this.form = this.formBuilder.group({
       username: '',
       password: '',
+      repeatPassword: new FormControl('', [this.isSigningUpValidator()]),
       role: ''
     })
   }
+
+  loggingIn = true
 
   public form: FormGroup
 
@@ -28,8 +31,20 @@ export class LoginComponent implements OnInit {
 
   }
 
+  isSigningUpValidator(): ValidatorFn {
+    return (control: AbstractControl): ValidationErrors | null => {
+      return !this.loggingIn ? {} : null;
+    };
+  }
+
+  changeButton() {
+    this.loggingIn = !this.loggingIn
+  }
+
   onSubmit() {
-    this.accountService.login(this.form.value)
+    if (this.loggingIn) this.accountService.login(this.form.value)
+    else this.accountService.signUp(this.form.value)
+    .then(() => this.accountService.login(this.form.value))
   }
 
   signUp(form: FormGroup) {

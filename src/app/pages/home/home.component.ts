@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { AddMovementComponent } from 'src/app/components/add-movement/add-movement.component';
+import { EditMovementComponent } from 'src/app/components/edit-movement/edit-movement.component';
 import Movement from 'src/app/interfaces/movementInterface';
 import UserData from 'src/app/interfaces/userInterface';
 import { AccountService } from 'src/app/services/account/account.service';
@@ -53,7 +54,7 @@ export class HomeComponent implements OnInit {
 
   prettierName(name: string): string {
     return {
-      'market': 'Mercado', 
+      'market': 'Mercado',
       'drug_store': 'Farmácia', 
       'pet': 'Pet', 
       'others': 'Outros'
@@ -69,8 +70,14 @@ export class HomeComponent implements OnInit {
       'pix_inflow': 1, 
       'pix_outflow': -1, 
       'deposit_inflow': 1, 
-      'deposit_outflow': -1
+      'deposit_outflow': -1,
+      'money': -1
     }[method] || 1
+  }
+
+  async deleteMovement(movement: Movement) {
+    await this.movementService.deleteMovement(movement.id)
+    window.location.reload()
   }
 
   showAddMovementModal() {
@@ -78,6 +85,13 @@ export class HomeComponent implements OnInit {
         header: 'Adicionar uma movimentação',
     });
     this.movementService.setRef(this.ref)
-}
+  }
 
+  showEditMovementModal(movement: Movement) {
+    this.ref = this.dialogService.open(EditMovementComponent, {
+        header: 'Editar movimentação',
+        data: movement
+    });
+    this.movementService.setRef(this.ref)
+  }
 }

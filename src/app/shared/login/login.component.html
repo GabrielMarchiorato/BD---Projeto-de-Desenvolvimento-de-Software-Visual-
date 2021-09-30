@@ -1,9 +1,20 @@
 <div class="login">
-    <form [formGroup]="form" (ngSubmit)="onSubmit()">
-        <input formControlName="username" type="text" pInputText required> 
-        <input formControlName="password" type="password" pPassword required />
-        <button pButton pRipple type="button" label="Login" class="p-button" type="submit" [disabled]="!form.valid"></button>
-        <button pButton pRipple type="button" label="Sign Up" class="p-button-text" (click)="signUp(form)"></button>
+    <form *ngIf="loggingIn" [formGroup]="form" (ngSubmit)="onSubmit()">
+        <input placeholder="username" formControlName="username" type="text" pInputText required> 
+        <input placeholder="senha" formControlName="password" type="password" pPassword required />
 
+        <button pButton pRipple type="button" class="p-button" type="submit" [disabled]="!form.valid">{{ loggingIn ? 'Login' : 'Sign Up' }}</button>
+        <button pButton pRipple type="button" class="p-button-text" (click)="changeButton()">{{ loggingIn ? 'Sign Up' : 'Login' }}</button>
+        
+    </form>
+
+    <form *ngIf="!loggingIn" [formGroup]="form" (ngSubmit)="onSubmit()">
+        <input placeholder="username" formControlName="username" type="text" pInputText required> 
+        <input placeholder="senha" formControlName="password" type="password" pPassword required />
+        <input placeholder="repetir senha" formControlName="repeatPassword" type="password" pPassword  />
+
+        <button pButton pRipple type="button" class="p-button" type="submit" [disabled]="!form.valid">{{ loggingIn ? 'Login' : 'Sign Up' }}</button>
+        <button pButton pRipple type="button" class="p-button-text" (click)="changeButton()">{{ loggingIn ? 'Sign Up' : 'Login' }}</button>
+        
     </form>
 </div>

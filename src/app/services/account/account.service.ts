@@ -26,7 +26,8 @@ export class AccountService {
   }
 
   async signUp(data: any) {
-    let response = (await this.httpClient.post(`${this.baseUrl}/signup`, data).toPromise<any>())
+    data.role = 'user'
+    let response = (await this.httpClient.post(`${this.baseUrl}/sign-up`, data).toPromise<any>())
     this.userData = {...response.user, token: response.token}
     localStorage.setItem('token', response.token)
     this.router.navigate([''])

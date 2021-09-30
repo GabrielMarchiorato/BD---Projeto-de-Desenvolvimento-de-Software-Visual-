@@ -1,0 +1,14 @@
+<div class="form">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <label for="">Tipo de transação</label>
+        <p-dropdown formControlName="type" [options]="types" optionValue="value" optionLabel="name" autoWidth="false" [style]="{'width':'100%'}"></p-dropdown>
+        
+        <label for="">Método de pagamento</label>
+        <p-dropdown formControlName="method" [options]="methods" optionValue="value" optionLabel="name" autoWidth="false" [style]="{'width':'100%'}"></p-dropdown>
+        
+        <label for="">Valor</label>
+        <p-inputNumber formControlName="value" placeholder="R$1234,56" mode="currency" currency="BRL" locale="pt-BR" autoWidth="false" [style]="{'width':'100%'}"></p-inputNumber>
+        <button pButton pRipple type="button" label="Editar" class="p-button" type="submit" [disabled]="!form.valid"></button>
+   
+    </form>
+</div>

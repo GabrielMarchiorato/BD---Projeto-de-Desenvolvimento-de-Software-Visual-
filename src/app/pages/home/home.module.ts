@@ -14,6 +14,7 @@ import { DataViewModule } from 'primeng/dataview';
 import { ButtonModule } from 'primeng/button';
 import { DropdownModule } from 'primeng/dropdown'; 
 import { InputNumberModule } from 'primeng/inputnumber';
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 @NgModule({
   imports: [
     CommonModule,
@@ -24,7 +25,8 @@ import { InputNumberModule } from 'primeng/inputnumber';
     DataViewModule,
     ButtonModule,
     DropdownModule,
-    InputNumberModule
+    InputNumberModule,
+    SweetAlert2Module
   ],
   declarations: [HomeComponent, BalanceComponent, TypesChartComponent]
 })
