@@ -6,11 +6,16 @@ import {InputTextModule} from 'primeng/inputtext';
 import { Component } from "@angular/core";
 import { SelectItem, PrimeNGConfig } from "primeng/api";
 import {SelectButtonModule} from 'primeng/selectbutton';
+import { CardModule as CardM } from 'primeng/card';
 
 
 import { CardComponent } from './card.component';
 import { CardsCarouselComponent } from 'src/app/shared/cards-carousel/cards-carousel.component';
 import { CarouselModule } from 'primeng/carousel';
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
+import { ButtonModule } from 'primeng/button';
+import { DataViewModule } from 'primeng/dataview';
+import { InputNumberModule } from 'primeng/inputnumber';
 @NgModule({
   imports: [
     CommonModule,
@@ -18,7 +23,13 @@ import { CarouselModule } from 'primeng/carousel';
     CardRoutingModule,
     CarouselModule,
     InputTextModule,
-    SelectButtonModule
+    SelectButtonModule,
+    SweetAlert2Module,
+    InputNumberModule,
+    CardM,
+
+    DataViewModule,
+    ButtonModule,
   ],
   declarations: [
     CardComponent,

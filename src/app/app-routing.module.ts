@@ -16,7 +16,9 @@ const routes: Routes = [
   }, 
   {
     path: 'cards',
-    loadChildren: () => import('./pages/card/card.module').then( m => m.CardModule)
+    loadChildren: () => import('./pages/card/card.module').then( m => m.CardModule),
+
+   runGuardsAndResolvers: 'always',
   },
   {
     path: '',
@@ -26,7 +28,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {onSameUrlNavigation: 'reload'})],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

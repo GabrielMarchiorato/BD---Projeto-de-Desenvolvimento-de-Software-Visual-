@@ -1,10 +1,40 @@
-<section>
-    <h1>Card Page</h1>
-    <section>
-        <app-cards-carousel>
-            
-        </app-cards-carousel>
-    </section>
-</section>
-<h5>Selecione opção de cartão:</h5>
-<p-selectButton [options]="cardOptions" [(ngModel)]="value2" optionLabel="name" optionValue="value">Selecione opção de cartão:</p-selectButton>
+
+<p-card *ngIf="loaded" header="Cartões do Usuário" [style]="{'margin': 'auto auto 2em' }">
+
+    <br style="height: 45px;">
+    <p-dataView #dv [value]="cards" [paginator]="true" [rows]="9" filterBy="type" layout="list" class="movement-list">
+      <ng-template pTemplate="header">
+        <div class="p-d-flex p-flex-column p-flex-md-row p-jc-md-between">
+          <h4>Cartões:</h4>
+          <button pButton pRipple type="button" label="Adicionar" class="p-button" (click)="showAddCardModal()"></button>
+        </div>
+  
+      </ng-template>
+      <ng-template let-card pTemplate="listItem">
+          <div class="p-col-12">
+            <div class="p-col-12">
+              <div class="product-list-item">
+                  <div class="product-list-detail">
+                      <div class="product-name">{{card.cardHolder}}</div>
+                      <h6 class="product-price">{{card.number}}</h6>
+                      <h6 class="product-price">Expiração: {{card.expirationDate}}</h6>
+                  </div>
+                  <div class="product-list-action">
+                  </div>
+                  <div class="product-list-action">
+                  </div>
+                  <button
+                    [swal]="{ title: 'Remover cartão', showCancelButton: true, cancelButtonText: 'Cancelar'  }"
+                    (confirm)="deleteCard(card)" pButton pRipple class="p-button-outlined p-button-danger">
+                    
+                    Remover
+                  </button>
+  
+                  <button pButton pRipple type="button" label="Editar" class="p-button-outlined p-button-info" (click)="showEditCardModal(card)"></button>
+              </div>
+            </div>
+          </div>
+      </ng-template>
+    </p-dataView>
+  
+  </p-card>

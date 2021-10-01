@@ -1,0 +1,12 @@
+<div class="form">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <label for="">Número do cartão</label>
+        <p-inputMask formControlName="number" mask="9999 9999 9999 9999" placeholder="0000 0000 0000 0000" autoWidth="false" [style]="{'width':'100%'}"></p-inputMask>
+        <label for="">Nome no cartão</label>
+        <input placeholder="JÕAO DA SILVA" formControlName="cardHolder" type="text" pInputText required> 
+        <label for="">Month Picker</label>
+        <p-calendar formControlName="expirationDate" view="month" dateFormat="mm/yy" [yearNavigator]="true" yearRange="2000:2030" inputId="monthpicker"></p-calendar>
+       <button pButton pRipple type="button" label="Editar" class="p-button" type="submit" [disabled]="!form.valid"></button>
+   
+    </form>
+</div>

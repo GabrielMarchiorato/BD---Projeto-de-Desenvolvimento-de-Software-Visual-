@@ -37,8 +37,6 @@ export class MovementService {
     } catch {
       this.dialogRef?.close()
     }
-
-
   }
   async updateMovement(data: any){
     return this.httpClient.patch(this.baseUrl, data, this.options).toPromise<any>();
