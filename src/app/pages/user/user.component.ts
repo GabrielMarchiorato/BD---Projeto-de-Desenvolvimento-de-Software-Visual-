@@ -1,12 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import UserData from "src/app/interfaces/userInterface"
+import {ToggleButtonModule} from 'primeng/togglebutton';
 import { AccountService } from 'src/app/services/account/account.service';
 @Component({
   selector: 'app-user',
   templateUrl: './user.component.html',
   styleUrls: ['./user.component.scss']
 })
+
 export class UserComponent implements OnInit {
 
   usuario: UserData;
@@ -16,9 +18,10 @@ export class UserComponent implements OnInit {
   ) { this.usuario = {} as UserData; }
 
   ngOnInit(): void {
+
   }
+
 
   update(user: UserData): void {
   }
-
 }

@@ -1,13 +1,22 @@
 <div>
   <form>
-    <h2>Editar dados do Usuário</h2>
-    <div class="form-group">
-      <label for="inputUsername">Usuário</label>
-      <input type="username" class="form-control" id="inputusername" aria-describedby="usernameHelp">
-
+    <h2>Editar dados cadastrais:</h2>
+    <div class="form-group" >
+      <label for="inputUsername">Usuário:</label>
+      <input type="username" class="form-control" placeholder="Gabs" id="inputusername" aria-describedby="usernameHelp">
     </div>
-    <button type="submit" (click)="update(usuario)">Salvar</button>
+    <div class="form-group">
+      <label for="inputUsername">Telefone:</label>
+      <input type="username" class="form-control" placeholder="41 555 34675" id="inputusername" aria-describedby="usernameHelp">
+    </div>
+    <div class="form-group">
+      <label for="inputUsername">Email:</label>
+      <input type="username"  class="form-control" placeholder="lucas@gmail.com" id="inputusername" aria-describedby="usernameHelp">
+    </div>
+    <br>
+    <button type="submit"  (click)="update(usuario)">Salvar</button>
     <button routerLink="/admin">Cancelar</button>
-
   </form>
 </div>
+
+
